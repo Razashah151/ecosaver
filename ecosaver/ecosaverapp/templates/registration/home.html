@@ -1,0 +1,95 @@
+{% extends "registration/base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  {% load static %} {% block content %}
+  <link rel="stylesheet" href="{%static 'css/home.css'%}" />
+  <body>
+    <div class="hero">
+      <nav>
+        <img src="{% static 'images/eco-bulb.png' %}" class="logo" />
+
+        <ul>
+          <li><a href="#">User Profile</a></li>
+          <li><a href="#">Energy Analysis</a></li>
+          <li><a href="#">Home Automation </a></li>
+          <li><a href="#">Virtual Assistant</a></li>
+          <li><a href="#">User Training</a></li>
+        </ul>
+
+        <button type="button" onclick="toggleBtn()" id="btn">
+          <span></span>
+        </button>
+        <script src="{% static 'home.js' %}"></script>
+      </nav>
+      <div class="lamp-Container">
+        <img src="{% static 'images/lamp.png' %}" class="lamp" />
+        <img src="{% static 'images/lamp.png' %}" class="light" id="light" />
+      </div>
+      <div class="text-container">
+        <h1>Eco Saver</h1>
+        <p1>
+          "Eco Saver" is a concept or product that promotes eco-friendly and
+          energy-efficient solutions for consumers. It's focused on helping
+          individuals and households reduce their environmental footprint and
+          save on energy costs.<br />
+        </p1>
+        <a href="#">Check All Connection</a>
+        <div class="control">
+          <p>&copy;</p>
+          <div class="line"><span></span></div>
+          <p>&copy;</p>
+        </div>
+      </div>
+    </div>
+    <script src="{% static 'index.js' %}"></script>
+
+    <div class="header">
+      <div class="side-nav">
+        <div class="user">
+          <img src="{% static 'images/user.png' %}" class="user-img" />
+          <div>
+            <h2>Eco Saver</h2>
+            <p>xyz@gmail.com</p>
+          </div>
+          <img src="{% static 'images/star.png' %}" class="star-img" />
+        </div>
+        <ul>
+          <li>
+            <img src="{% static 'images/dashboard.png' %}" />
+            <p>Dashboard</p>
+          </li>
+          <li>
+            <img src="{% static 'images/reports.png' %}" />
+            <p>Report</p>
+          </li>
+          <li>
+            <img src="{% static 'images/messages.png' %}" />
+            <p>Message</p>
+          </li>
+          <li>
+            <img src="{% static 'images/projects.png' %}" />
+            <p>Project</p>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <img src="{% static 'images/logout.png' %}" />
+            <p>Logout</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <footer>
+      <div class="footer-content">
+        <p>&copy; Eco Saver. All Rights Reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>
+{% endblock %}

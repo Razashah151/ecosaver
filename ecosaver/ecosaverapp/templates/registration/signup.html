@@ -1,0 +1,43 @@
+{% extends "registration/base.html" %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    {% block content %} {% load static %}
+    <link rel="stylesheet" href="{%static 'css/signup.css'%}" />
+    <h2>Sign Up</h2>
+    <div class="container">
+      <form method="post" action="{% url 'signup' %}">
+        {% csrf_token %}
+
+        <div class="form-field">
+          {{ form.username.label_tag }} {{ form.username }}
+        </div>
+        <div class="form-field">
+          {{ form.email.label_tag }} {{ form.email }}
+        </div>
+        <div class="form-field">
+          {{ form.first_name.label_tag }} {{ form.first_name }}
+        </div>
+        <div class="form-field">
+          {{ form.last_name.label_tag }} {{ form.last_name }}
+        </div>
+        <div class="form-field">
+          {{ form.password1.label_tag }} {{ form.password1 }}
+        </div>
+        <div class="form-field">
+          {{ form.password2.label_tag }} {{ form.password2 }}
+        </div>
+
+        <button type="submit" class="submit">Sign Up</button>
+        <a href="{% url 'login' %}">Login</a>
+      </form>
+    </div>
+    {% endblock %}
+  </body>
+</html>
