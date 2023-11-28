@@ -16,26 +16,39 @@
         {% csrf_token %}
 
         <div class="form-field">
-          {{ form.username.label_tag }} {{ form.username }}
+          {{ user_form.username.label_tag }} {{ user_form.username }}
+        </div>
+        {% if form.username.errors %}
+        <div class="alert alert-danger">{{ form.username.errors }}</div>
+        {% endif %}
+        <div class="form-field">
+          {{ user_form.email.label_tag }} {{ user_form.email }}
         </div>
         <div class="form-field">
-          {{ form.email.label_tag }} {{ form.email }}
+          {{ user_form.first_name.label_tag }} {{ user_form.first_name }}
         </div>
         <div class="form-field">
-          {{ form.first_name.label_tag }} {{ form.first_name }}
+          {{ user_form.last_name.label_tag }} {{ user_form.last_name }}
         </div>
         <div class="form-field">
-          {{ form.last_name.label_tag }} {{ form.last_name }}
+          {{ user_form.password1.label_tag }} {{ user_form.password1 }}
         </div>
         <div class="form-field">
-          {{ form.password1.label_tag }} {{ form.password1 }}
+          {{ user_form.password2.label_tag }} {{ user_form.password2 }}
         </div>
+
+        <!-- Include fields from RegularUserCreationForm -->
         <div class="form-field">
-          {{ form.password2.label_tag }} {{ form.password2 }}
+          <!-- Add any additional fields for RegularUser here -->
+          {{ regular_user_form.some_field.label_tag }}
+          {{regular_user_form.some_field }}
         </div>
 
         <button type="submit" class="submit">Sign Up</button>
-        <a href="{% url 'login' %}">Login</a>
+
+        <button type="submit" class="submit">
+          <a href="{% url 'login' %}" class="login-link">Login</a>
+        </button>
       </form>
     </div>
     {% endblock %}

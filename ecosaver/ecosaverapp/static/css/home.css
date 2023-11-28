@@ -40,17 +40,11 @@ body, html {
   }
   .text-container h1 {
     font-size: 5rem;
-    color: #ffffff; 
-    opacity: 0;
+    color: white; 
     transform: translateY(20px);
     transition: opacity 0.5s, transform 0.5s, color 0.5s; 
   }
 
-  .text-container h1.show {
-    opacity: 1;
-    transform: translateY(0);
-    color: #00ff00;
-  }
 }
 
 nav {

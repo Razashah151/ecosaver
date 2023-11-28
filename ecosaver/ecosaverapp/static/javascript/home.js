@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function toggleBtn() {
         btn.classList.toggle("active");
         light.classList.toggle("on");
+        console.log("Button clicked!");
     }
 });
 

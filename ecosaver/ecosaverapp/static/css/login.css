@@ -86,9 +86,9 @@ input {
 
 a {
   text-decoration: none;
-  color: #007bff;
+  color: white;
   margin-top: 10px;
-  display: block;
+  display: inline-block
 }
 
 a:hover {

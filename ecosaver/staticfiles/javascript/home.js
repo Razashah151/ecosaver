@@ -9,9 +9,9 @@ document.addEventListener("DOMContentLoaded", function () {
     function toggleBtn() {
         btn.classList.toggle("active");
         light.classList.toggle("on");
+        console.log("Button clicked!");
     }
 });
-
 
 function toggleSidebar() {
     const body = document.querySelector('body');

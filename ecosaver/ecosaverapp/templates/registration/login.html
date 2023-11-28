@@ -19,7 +19,7 @@
         Password:
         <input type="password" name="password" />
         <button type="submit" class="submit">Log In</button>
-        <a href="{% url 'password_reset' %}">Forgot Password</a>
+        <a href="{% url 'password_reset' %}" >Forgot Password</a>
 <div class="wrong-details">
   {% if messages %}
   <ul class="messages">
@@ -30,19 +30,19 @@
 {% endif %}
 
 </div>
-        <button class="loginBtn loginBtn--google">
+        {% comment %} <button class="loginBtn loginBtn--google">
           <a
             href="{% provider_login_url 'google' method='oauth2' next='/home/' %}"
             >Signup Google</a
           >
-        </button>
+        </button> {% endcomment %}
 
-        <button class="loginBtn loginBtn--facebook">
+        {% comment %} <button class="loginBtn loginBtn--facebook">
           <a
             href="{% provider_login_url 'facebook' method='oauth2' next='/home/' %}"
             >Signup Facebook</a
           >
-        </button>
+        </button> {% endcomment %}
 
         <button class="signup"><a href="{% url 'signup' %}">Signup</a></button>
       </form>

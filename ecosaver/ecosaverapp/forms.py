@@ -1,9 +1,7 @@
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import User
 from django import forms
-from django.forms import ModelForm
 from .models import CustomUser
-
+from .validators import validate_username
 
 class CustomUserCreationForm(UserCreationForm):
     class Meta:
@@ -16,3 +14,14 @@ class CustomUserCreationForm(UserCreationForm):
             raise forms.ValidationError('This email address is already in use.')
         return email
 
+    def clean_username(self):
+        username = self.cleaned_data['username']
+        validate_username(username)  # Ensure custom alphanumeric validation
+        return username
+
+    def save(self, commit=True):
+        user = super().save(commit=False)
+        # You can add any additional logic here before saving the user.
+        if commit:
+            user.save()
+        return user
