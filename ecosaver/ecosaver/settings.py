@@ -46,6 +46,11 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.google',
     'allauth.socialaccount.providers.facebook',
     'ecosaverapp',
+    'rest_framework',
+    'rest_framework.authtoken',
+    'debug_toolbar',
+    'corsheaders',
+    'frontend',
 ]
 SOCIALACCOUNT_PROVIDERS = {
     'facebook': {
@@ -90,7 +95,13 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'allauth.account.middleware.AccountMiddleware',
     'django.contrib.sites.middleware.CurrentSiteMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
 ]
+CSRF_COOKIE_SECURE = True  # Set to False for development without HTTPS
+CSRF_COOKIE_SAMESITE = 'Lax'  # or 'Strict' depending on your requirements
+
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',  # Default backend
     'allauth.account.auth_backends.AuthenticationBackend',  # Allauth backend
@@ -177,3 +188,9 @@ STATICFILES_DIRS = [
 ]
 
 AUTH_USER_MODEL = 'ecosaverapp.CustomUser'
+
+# settings.py
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",  # Add the URL of your React app
+]
