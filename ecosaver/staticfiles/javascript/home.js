@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
+
 function toggleSidebar() {
     const body = document.querySelector('body');
     body.classList.toggle('sidebar-open');
