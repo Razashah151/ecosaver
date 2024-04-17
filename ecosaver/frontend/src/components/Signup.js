@@ -1,9 +1,9 @@
-// src/components/SignupForm.js
-import React, { useState } from 'react';
-import "../css/Signup.css"
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import '../css/login.css';
 import axios from 'axios';
 
-const SignupForm = () => {
+const Signup = (props) => {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [firstName, setFirstName] = useState('');
@@ -49,9 +49,13 @@ const SignupForm = () => {
         }
     };
 
+
     return (
-        <div>
-            <h2>Sign Up</h2>
+        <div className={'mainContainer'}>
+            <div className={'titleContainer'}>
+                <div>Signup</div>
+            </div>
+            <br />
             <div className="container">
                 <form onSubmit={handleSignup}>
                     <div className="form-field">
@@ -97,4 +101,4 @@ const SignupForm = () => {
     );
 };
 
-export default SignupForm;
+export default Signup;

@@ -3,10 +3,10 @@ import { useNavigate, Link } from 'react-router-dom';
 import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
 import { jwtDecode } from "jwt-decode";
 // import { SocialLogin, FacebookLoginButton } from 'react-social-login-buttons';
-import "../css/Login.css";
+import "../css/login.css";
 import axios from 'axios';
 
-const LoginForm = () => {
+const Login = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
@@ -37,9 +37,13 @@ const LoginForm = () => {
         navigate('/home');
     };
 
+
     return (
-        <div>
-            <h2>Login</h2>
+        <div className={'mainContainer'}>
+            <div className={'titleContainer'}>
+                <div>Login</div>
+            </div>
+            <br />
             <div className="container">
                 <form onSubmit={handleLogin}>
                     <label>
@@ -80,6 +84,9 @@ const LoginForm = () => {
                             }}
                         />
                     </GoogleOAuthProvider>
+                    <div class="signup-container">
+                        <button class="facebook-btn">Sign up with Facebook</button>
+                    </div>
 
                     {/* <SocialLogin
                         trigger={<FacebookLoginButton appId="375980704954948" />}
@@ -94,4 +101,4 @@ const LoginForm = () => {
 };
 
 
-export default LoginForm;
+export default Login

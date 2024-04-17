@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import '../css/VirtualAssistant.css'
+import '../css/VirtualAssistant.css';
 
-const VirtualAssistant = () => {
+const Virtual = () => {
   const [userInput, setUserInput] = useState('');
   const [chatbotResponse, setChatbotResponse] = useState('');
 
@@ -43,7 +43,6 @@ const VirtualAssistant = () => {
     ["Check electricity."],
   ];
 
-
   const alternative = ["Oops...", "sorry..."];
 
   const handleKeyPress = (e) => {
@@ -56,12 +55,10 @@ const VirtualAssistant = () => {
   };
 
   const openModal = () => {
-    // Add your logic to open the modal here
     document.getElementById('id01').style.display = 'block';
   };
 
   const closeModal = () => {
-    // Add your logic to close the modal here
     document.getElementById('id01').style.display = 'none';
   };
 
@@ -109,90 +106,120 @@ const VirtualAssistant = () => {
 
   return (
     <div>
-      <html>
-        <head>
-          <title>Chatbot</title>
-          <meta charset="UTF-8" />
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
-          <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-          <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
-          <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css" />
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" />
-        </head>
-        <body>
-          {/* Side Navigation */}
-          <nav className="w3-sidebar w3-bar-block w3-card w3-animate-left w3-center" style={{ display: 'none' }} id="mySidebar">
-            <h1 className="w3-xxxlarge w3-text-theme">Side Navigation</h1>
-            <button className="w3-bar-item w3-button" onClick={closeModal}>Close <i className="fa fa-remove"></i></button>
-            <a href="#" className="w3-bar-item w3-button">Link 1</a>
-            <a href="#" className="w3-bar-item w3-button">Link 2</a>
-            <a href="#" className="w3-bar-item w3-button">Link 3</a>
-            <a href="#" className="w3-bar-item w3-button">Link 4</a>
-          </nav>
+      <nav>
+        <div className="container nav_container">
+          <ul className="nav_items">
+            <li><a href="home">Home</a></li>
+            <li><a href="#">User Profile</a></li>
+            <li><a href="energy">Energy Analysis</a></li>
+            <li><a href="automation">Home Automation</a></li>
+            <li><a href="#">Virtual Assistant</a></li>
+            <li><a href="#">User Documentation</a></li>
+          </ul>
+          <a href="./index.html" className="nav_logo">  </a>
+          <div className="nav_signin-signup">
+            <a href="#">Login</a>
+            <a href="#" className="btn">Signup</a>
+          </div>
+          <button className="menu-btn"><img src="./images/menu.png" alt="" /></button>
+          <button className="close"><img src="./images/close.png" alt="" /></button>
+        </div>
+      </nav>
 
-          {/* Header */}
-          <header className="w3-container w3-theme w3-padding" id="myHeader">
-            <i onClick={openModal} className="fa fa-bars w3-xlarge w3-button w3-theme"></i>
+      <header className="w3-container w3-theme w3-padding" id="myHeader">
+        <i onClick={openModal} className="fa fa-bars w3-xlarge w3-button w3-theme"></i>
+        <div className="w3-center">
+          <h4>Eco Saver Web App</h4>
+          <h1 className="w3-xxxlarge w3-animate-bottom">Help Chat</h1>
+          <div className="w3-padding-32">
+            <button className="w3-btn w3-xlarge w3-dark-grey w3-hover-light-grey" onClick={openModal} style={{ fontWeight: 900 }}>Start Chat</button>
+          </div>
+        </div>
+      </header>
+
+      <div id="id01" className="w3-modal">
+        <div className="w3-modal-content w3-card-4 w3-animate-top">
+          <header className="w3-container w3-theme-l1">
+            <span onClick={closeModal} className="w3-button w3-display-topright">X</span>
             <div className="w3-center">
-              <h4>Eco Saver Web App</h4>
-              <h1 className="w3-xxxlarge w3-animate-bottom">Help Chat</h1>
-              <div className="w3-padding-32">
-                <button className="w3-btn w3-xlarge w3-dark-grey w3-hover-light-grey" onClick={openModal} style={{ fontWeight: 900 }}>Start Chat</button>
-              </div>
+              <h4>Welcome to Virtual Assistant</h4>
             </div>
           </header>
 
-          {/* Modal */}
-          <div id="id01" className="w3-modal">
-            <div className="w3-modal-content w3-card-4 w3-animate-top">
-              <header className="w3-container w3-theme-l1">
-                <span onClick={closeModal} className="w3-button w3-display-topright">X</span>
-                <div className="w3-center">
-                  <h4>Welcome to Virtual Assistant</h4>
-                </div>
-              </header>
-
-              {/* Chat Window */}
-              <div className="w3-full w3-row-padding w3-margin-top w3-padding w3-card w3-container" style={{ minHeight: '460px' }}>
-                <div className="w3-center">
-                  <i className="fa fa-desktop w3-margin-bottom w3-margin-top w3-text-theme" style={{ fontSize: '125px' }}></i>
-                </div>
-                <h5>
-                  <ul>My name is Chat bot. How Can I help you?</ul>
-                </h5>
-                <t className="w3-margin-bottom w3-text-theme" style={{ fontSize: '25px' }}>
-                  <div id="main">
-                    <div>You: <span id="user">{userInput}</span></div>
-                  </div>
-
-                  <t className="w3-margin-bottom w3-text-theme" style={{ fontSize: '25px' }}>
-                    <div>Chat bot: <span id="chatbot">{chatbotResponse}</span></div>
-                  </t>
-                  <div>
-                    <div className="w3-center w3-margin-top">
-                      <input
-                        id="input"
-                        type="text"
-                        placeholder="Enter your question..."
-                        autoComplete="on"
-                        value={userInput}
-                        onChange={(e) => setUserInput(e.target.value)}
-                        onKeyDown={handleKeyPress}
-                      />
-                    </div>
-                  </div>
-                </t>
+          <div className="w3-full w3-row-padding w3-margin-top w3-padding w3-card w3-container" style={{ minHeight: '460px' }}>
+            <div className="w3-center">
+              <i className="fa fa-desktop w3-margin-bottom w3-margin-top w3-text-theme" style={{ fontSize: '125px' }}></i>
+            </div>
+            <h5>
+              <ul>My name is Chat bot. How Can I help you?</ul>
+            </h5>
+            <t className="w3-margin-bottom w3-text-theme" style={{ fontSize: '25px' }}>
+              <div id="main">
+                <div>You: <span id="user">{userInput}</span></div>
               </div>
 
-              <footer className="w3-container w3-theme-l1">
+              <t className="w3-margin-bottom w3-text-theme" style={{ fontSize: '25px' }}>
+                <div>Chat bot: <span id="chatbot">{chatbotResponse}</span></div>
+              </t>
+              <div>
+                <div className="w3-center w3-margin-top">
+                  <input
+                    id="input"
+                    type="text"
+                    placeholder="Enter your question..."
+                    autoComplete="on"
+                    value={userInput}
+                    onChange={(e) => setUserInput(e.target.value)}
+                    onKeyDown={handleKeyPress}
+                  />
+                </div>
+              </div>
+            </t>
+          </div>
 
-              </footer>
+        </div>
+      </div>
+      <footer>
+        <div className="container footer_container">
+          <div className="footer-1">
+            <a href="index.html" className="logo"><h3>Eco Saver</h3></a>
+            <p>"Eco Saver" is a concept or product that promotes eco-friendly and energy-efficient solutions for consumers. It's focused on helping individuals and households reduce their environmental footprint and save on energy costs.</p>
+            <div className="footer_subscribe">
+              <input type="email" placeholder="Enter Email" required />
+              <button type="submit"></button>
             </div>
           </div>
-        </body>
-      </html>
+          <div className="footer-2">
+            <h4>Permalinks</h4>
+            <ul className="permalinks">
+              <li><a href="./index.html">User Profile</a></li>
+              <li><a href="./energy.html">Energy Analysis</a></li>
+              <li><a href="./home_automation.html">Home Automation</a></li>
+              <li><a href="./index.html">Virtual Assistant</a></li>
+              <li><a href="./index.html">User Documentation</a></li>
+            </ul>
+          </div>
+          <div className="footer-3">
+            <h4>Primacy</h4>
+            <ul className="privacy">
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Terms and Condition</a></li>
+            </ul>
+          </div>
+          <div className="footer-4">
+            <h4>Contact Us</h4>
+            <p>
+              +01-3782628 <br />
+              ecosaver@gmail.com
+            </p>
+          </div>
+        </div>
+        <div className="copyright">
+          <small>Copyright &copy; All Right Reserved</small>
+        </div>
+      </footer>
     </div>
   );
 };
 
-export default VirtualAssistant;
+export default Virtual;

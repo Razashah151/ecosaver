@@ -86,6 +86,7 @@ SOCIALACCOUNT_LOGIN_ON_GET=True
 
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -96,7 +97,6 @@ MIDDLEWARE = [
     'allauth.account.middleware.AccountMiddleware',
     'django.contrib.sites.middleware.CurrentSiteMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
 ]
 CSRF_COOKIE_SECURE = True  # Set to False for development without HTTPS

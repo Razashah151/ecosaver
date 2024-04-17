@@ -66,3 +66,10 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
 
     def __str__(self):
         return self.username
+
+class SensorData(models.Model):
+    timestamp = models.DateTimeField(auto_now_add=True)
+    value = models.FloatField()
+
+    def __str__(self):
+        return f"SensorData at {self.timestamp}: {self.value}"

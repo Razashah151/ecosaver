@@ -1,24 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@600&display=swap');
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-body{
+.automation-container {
     font-family: 'Baloo Bhai 2', cursive;
-    background-color: #1b1b2c;;
+    background-color: #717198;
 }
-header{
+
+.automation-header {
     height: 100px;
     width: 100%;
-    background: #1b1b2c;;
+    background: #cacae4;
     color: #3f3f3f;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 20px;
 }
-section{
+#bulb {
+    width: 150px; /* Adjust the width as needed */
+}
+.automation-section {
     width: 100%;
     height: 500px;
     display: flex;
@@ -26,11 +24,12 @@ section{
     align-items: center;
     flex-direction: column;
 }
-.btn_container{
+
+.btn_container {
     margin-top: 50px;
 }
-.bulb_btn{
-    font-family: 'Baloo Bhai 2', cursive;
+
+.bulb_btn {
     width: 150px;
     height: 50px;
     border: none;
@@ -38,5 +37,80 @@ section{
     cursor: pointer;
     background: #34dab4;
     font-size: 30px;
-    
+}
+
+.status_container {
+    color: #fff;
+}
+
+.toggle_container {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+.toggle_text {
+    margin-left: 10px;
+    font-size: 18px;
 }
